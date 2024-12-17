@@ -1,27 +1,25 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>EPENEX</title>
+</head>
 
 <body>
+  <section id="hello">
+    <div class="title-container">
+      <div class="title">EPENEX</div>
+    </div>
 
- <section id="hello">
-  <div class="section-content">
-   <h1 class="headline centered">EPENEX</h1>
-  </div>
-  <div id="img-bkg"></div>
- </section>
-
-  <svg width="0" height="0">
-   <defs id="defs1">
-    <filter id="turbulence-effect">
-     <feTurbulence type="fractalNoise" baseFrequency="0.002" numOctaves="1" seed="1" result="noise">
-      <animate attributeName="baseFrequency" values="0.002;0.01;0.002" dur="20s" repeatCount="indefinite"/>
-     </feTurbulence>
-     <feDisplacementMap in="SourceGraphic" in2="noise" scale="80">
-      <animate attributeName="scale" values="80; 120; 80" dur="10s" repeatCount="indefinite"/>
-     </feDisplacementMap>
-    </filter>
-   </defs></svg>
-
+    <div id="img-bkg"></div>
+  </section>
 </body>
+
+</html>
