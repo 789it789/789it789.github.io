@@ -1,3 +1,8 @@
+  @font-face {
+  font-family: DynaPuff;
+  src: url(DynaPuff-Medium.ttf);
+}
+
 /* General body and layout settings */
 body {
   display: flex;
