@@ -1,6 +1,7 @@
   @font-face {
   font-family: DynaPuff;
   src: url(DynaPuff-Medium.ttf);
+  font-display: swap;
 }
 
 /* General body and layout settings */
