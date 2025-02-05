@@ -49,6 +49,7 @@ html, body {
 
 /* Linkbox */
 #linkbox {
+  user-select: none;
   width: 70vw;
   display: flex;
   justify-content: center;
@@ -139,6 +140,7 @@ html, body {
 }
 
 .title {
+  user-select: none;
   writing-mode: vertical-lr;
   text-orientation: upright;
   font-family: "DynaPuff", sans-serif;
