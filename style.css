@@ -1,18 +1,30 @@
-  @font-face {
+:root {
+  --color-dark: #0b8d0b;
+  --color-lite: rgba(255, 255, 255, 1);
+  box-sizing: inherit;
+}
+
+@font-face {
   font-family: DynaPuff;
   src: url(font.woff2);
   font-display: swap;
 }
-  @font-face {
-  font-family: Comic;
-  src: url(comic.woff2);
-  font-display: swap;
-}
 
-:root {
-  --color-dark: #222;
-  --color-lite: #fff;
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
 }
+.image-style {
+  width: auto;
+            height: 100%;
+            z-index:-1;
+        }
 
 #img-bkg {
   position: fixed;
@@ -20,128 +32,37 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(epenex.webp) no-repeat center center fixed;
+  background: url(matrix.gif) repeat center center fixed;
   background-size: contain;
   z-index: -1;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction:column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 1;
-  background-color: var(--color-dark);
-}
-
-/* Box-sizing for all elements */
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-/* Linkbox */
-#linkbox {
-  user-select: none;
-  width: 70vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3%;
-  margin-bottom: -20%;
-}
 
 #links {
-  width: 100%;
-  max-width: 800px;
-  background-color: var(--color-lite);
-  padding: 1em;
-  opacity: 0.5;
-}
-
-#links ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#links ul li {
-  background-color: var(--color-dark);
-  padding: 1.5em;
-  color: var(--color-lite);
-  font-family: "Comic", sans-serif;
-  letter-spacing: 1.2px;
-  font-size:1.5em;
   transition: 0.5s background-color, 0.5s color;
-  position: relative;
 }
 
-#links ul li a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#links a {
   text-decoration: none;
   color: inherit;
-  width: 100%;
-  height: 100%;
-  position: absolute;
   top: 0;
   left: 0;
 }
 
-#links ul li:hover {
-  background-color: var(--color-lite);
+#links a:hover {
   color: var(--color-dark);
 }
 
-
-/* Search Form */
-.searchbox-container {
-  width: 70vw;
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  opacity: 1;
-}
-
-.search {
-  width: 70vw;
-  height: 50px;
-  margin-bottom: 1%;
-  padding: 5px;
-  background: none;
-  font-family: "Comic", sans-serif;
-  font-size:1.5em;
-  color: white;
-  border: none;
-  letter-spacing: 1px;
-}
-
-.search:focus {
-  outline: none;
-}
 
 /* Title */
 .title-container {
   display: flex;
   position: absolute;
-  margin-bottom: 20px;
-  margin-left: 75%;
+  margin-left: 0%;
 }
 
 .title {
   user-select: none;
-  writing-mode: vertical-lr;
-  text-orientation: upright;
   font-family: "DynaPuff", sans-serif;
   font-weight: 500;
   font-size: 7vw;
@@ -151,11 +72,11 @@ html, body {
   z-index: 1;
   transition: transform 1s ease-in-out;
   animation: moveTitle 12s ease-in-out infinite, scaleTitle 10s ease-in-out infinite;
- text-shadow:
+  text-shadow:
       4px 4px 0px #d5d5d5,
       7px 7px 0px rgba(0, 0, 0, 0.2);
-
 }
+
 
 /* Title Animation */
 @keyframes moveTitle {
@@ -188,48 +109,9 @@ html, body {
   }
 }
 
-
-/* Responsive Styles */
-@media (max-width: 1200px) {
-  #linkbox {
-    padding: 0 10px;
-  }
-
-  .search {
-    width: 70vw;
-  }
-
-  .title {
-    font-size: 8vw;
-  }
-}
-
-@media (max-width: 768px) {
-  .title {
-    font-size: 12vw;
-    letter-spacing: -0.08em;
-  }
-
-  #linkbox {
-    padding: 0 15px;
-  }
-
-  .search {
-    font-size: 18px;
-    width: 80vw;
-  }
-}
-
 @media (max-width: 480px) {
   .title {
     font-size: 12vw;
     letter-spacing: -0.05em;
   }
-
-  .search {
-    font-size: 16px;
-    width: 100vw;
-  }
 }
-
-
