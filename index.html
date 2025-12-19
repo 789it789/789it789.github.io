@@ -8,57 +8,6 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <title>epenex</title>
-    <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const appName = 'ChaseAle-test-SBX-a14ba1b09-fc448a21';
-  const storeUsername = 'epenex';
-  const endpoint = `https://svcs.ebay.com/services/search/FindingService/v1?`;
-
-  const params = new URLSearchParams({
-    'SECURITY-APPNAME': appName,
-    'OPERATION-NAME': 'findItemsBySeller',
-    'SERVICE-VERSION': '1.0.0',
-    'GLOBAL-ID': 'EBAY-US',
-    'seller': storeUsername,
-    'paginationInput.entriesPerPage': 10,
-    'outputSelector': 'itemTitle,viewItemURL,sellingStatus,galleryURL',
-    'responseEncoding': 'JSON'
-  });
-
-  fetch(`${endpoint}${params}`)
-  .then(response => response.json())
-  .then(data => {
-    const listingsContainer = document.getElementById("ebay-listings");
-
-    if (data.findItemsBySellerResponse[0].searchResult[0].item) {
-      const items = data.findItemsBySellerResponse[0].searchResult[0].item;
-      let html = '<ul>';
-  items.forEach(item => {
-    const title = item.title[0];
-    const price = item.sellingStatus[0].currentPrice[0]['__value__'];
-    const currency = item.sellingStatus[0].currentPrice[0]['@currencyId'];
-    const itemUrl = item.viewItemURL[0];
-    const imageUrl = item.galleryURL[0];
-
-    html += `
-    <li>
-    <img src="${imageUrl}" alt="${title}" style="width:100px;">
-    <h3><a href="${itemUrl}" target="_blank">${title}</a></h3>
-    <p>Price: ${price} ${currency}</p>
-    </li>
-    `;
-  });
-  html += '</ul>';
-  listingsContainer.innerHTML = html;
-    } else {
-      listingsContainer.innerHTML = `<p>No listings found for seller ${storeUsername}.</p>`;
-    }
-  })
-  .catch(error => {
-    console.error('Error fetching data:', error);
-  });
-  });
-  </script>
 </head>
 
 <body>
