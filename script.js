@@ -26,7 +26,7 @@ window.addEventListener('load', async function () {
 
     function draw() {
         ctx.font = `${fontSize}px "Temple", sans-serif`;
-        ctx.fillStyle = 'rgba(0,0,0,.1);
+        ctx.fillStyle = 'rgba(0,0,0,.1)';
         ctx.fillRect(0, 0, canvas.width / ratio, canvas.height / ratio);
         ctx.fillStyle = '#0f0';
         for (let i = 0; i < drops.length; i++) {
