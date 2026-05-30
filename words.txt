@@ -2311,13 +2311,6 @@ etc
 eternal
 eternally
 eternity
-etext
-etext00
-etext01
-etext02
-etext90
-etext99
-etexts
 eunuchs
 euodius
 evangelists
