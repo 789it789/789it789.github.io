@@ -1069,7 +1069,6 @@ cloudy
 cloven
 cloyed
 cloyedness
-co
 coals
 coats
 codes
@@ -6577,9 +6576,6 @@ taunt
 taunted
 tax
 taxes
-tcosa10
-tcosa10a
-tcosa11
 teach
 teacher
 teachers
