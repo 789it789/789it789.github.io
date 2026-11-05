@@ -132,8 +132,6 @@ p {
   }
 }
 
-
-
 /* temple */
 
 #app {
@@ -238,9 +236,10 @@ p {
 .tos-window {
   box-sizing: border-box;
   position: static;
-  flex: 0 0 auto;
+  grid-column: 1 / -1;
+  justify-self: center;
   width: min(100%, 420px);
-  margin: 14px auto 0;
+  margin: 0;
 
   background: linear-gradient(
     180deg,
