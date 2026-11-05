@@ -73,15 +73,20 @@ function buildUI(root) {
   root.appendChild(oracle);
 
   const tonguesSection = el('div', 'oracle-section');
-
   const tonguesWrap = el('div', 'tongues-words');
   tonguesWrap.id = 'tongues-words';
   tonguesSection.appendChild(tonguesWrap);
+  oracle.appendChild(tonguesSection);
 
-  let meta = document.getElementById('meta-window');
-  if (meta) meta.remove();
+  const controlSection = el('div', 'oracle-section');
+  const btn = el('button', '', 'Show Pulse Details');
+  btn.type = 'button';
+  btn.style.marginTop = '8px';
+  btn.onclick = toggleMetaWindow;
+  controlSection.appendChild(btn);
+  oracle.appendChild(controlSection);
 
-  meta = el('div', 'tos-window');
+  const meta = el('div', 'tos-window');
   meta.id = 'meta-window';
   meta.style.display = 'none';
   meta.innerHTML = `
@@ -92,17 +97,7 @@ function buildUI(root) {
     <div class="tos-window-body" id="meta-body"></div>
   `;
 
-oracle.appendChild(tonguesSection);
-oracle.appendChild(controlSection);
-oracle.appendChild(meta);
-
-  const controlSection = el('div', 'oracle-section');
-  const btn = el('button', '', 'Show Pulse Details');
-  btn.type = 'button';
-  btn.style.marginTop = '8px';
-  btn.onclick = () => toggleMetaWindow();
-  controlSection.appendChild(btn);
-  oracle.appendChild(controlSection);
+  oracle.appendChild(meta);
 
   document.getElementById('meta-close').onclick = () => {
     meta.style.display = 'none';
