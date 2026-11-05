@@ -92,8 +92,9 @@ function buildUI(root) {
     <div class="tos-window-body" id="meta-body"></div>
   `;
 
-  tonguesSection.appendChild(meta);
-  oracle.appendChild(tonguesSection);
+oracle.appendChild(tonguesSection);
+oracle.appendChild(controlSection);
+oracle.appendChild(meta);
 
   const controlSection = el('div', 'oracle-section');
   const btn = el('button', '', 'Show Pulse Details');
