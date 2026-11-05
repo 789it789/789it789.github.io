@@ -239,10 +239,8 @@ p {
   box-sizing: border-box;
   position: static;
   flex: 0 0 auto;
-  width: 100%;
-  max-width: 420px;
-  align-self: center;
-  margin: 0;
+  width: min(100%, 420px);
+  margin: 14px auto 0;
 
   background: linear-gradient(
     180deg,
