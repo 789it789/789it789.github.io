@@ -68,36 +68,44 @@ async function loadWordlist(urls = ['words.txt']) {
 function buildUI(root) {
   root.innerHTML = '';
 
-
-  const oracle = el('div','oracle-content');
+  const oracle = el('div', 'oracle-content');
   oracle.id = 'oracle-content';
   root.appendChild(oracle);
 
-  const tonguesSection = el('div','oracle-section');
-  const tonguesWrap = el('div','tongues-words');
+  const tonguesSection = el('div', 'oracle-section');
+
+  const tonguesWrap = el('div', 'tongues-words');
   tonguesWrap.id = 'tongues-words';
   tonguesSection.appendChild(tonguesWrap);
+
+  let meta = document.getElementById('meta-window');
+  if (meta) meta.remove();
+
+  meta = el('div', 'tos-window');
+  meta.id = 'meta-window';
+  meta.style.display = 'none';
+  meta.innerHTML = `
+    <div class="tos-titlebar">
+      <span class="tos-title" id="meta-title">Pulse Details</span>
+      <button class="tos-close" id="meta-close" type="button">×</button>
+    </div>
+    <div class="tos-window-body" id="meta-body"></div>
+  `;
+
+  tonguesSection.appendChild(meta);
   oracle.appendChild(tonguesSection);
 
-  const controlSection = el('div','oracle-section');
-  const btn = el('button','','Show Pulse Details');
+  const controlSection = el('div', 'oracle-section');
+  const btn = el('button', '', 'Show Pulse Details');
   btn.type = 'button';
   btn.style.marginTop = '8px';
   btn.onclick = () => toggleMetaWindow();
   controlSection.appendChild(btn);
   oracle.appendChild(controlSection);
 
-  let meta = document.getElementById('meta-window');
-  if (meta) meta.remove();
-  meta = el('div','tos-window');
-  meta.id = 'meta-window';
-  meta.style.display = 'none';
-  meta.innerHTML = `
-  <div class="tos-titlebar"><span class="tos-title" id="meta-title">Pulse Details</span><button class="tos-close" id="meta-close">×</button></div>
-  <div class="tos-window-body" id="meta-body"></div>
-  `;
-  document.body.appendChild(meta);
-  document.getElementById('meta-close').onclick = () => { meta.style.display = 'none'; };
+  document.getElementById('meta-close').onclick = () => {
+    meta.style.display = 'none';
+  };
 }
 
 function updateUIForPulse(pulse) {
